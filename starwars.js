@@ -14,10 +14,13 @@ async function populate() {
       nextPage = starShips.next;
     }
   }
-  function openNewPage(url, films) {
-    // Convert the films array to a JSON string and append it as a query parameter
+  function openNewPage(url, films, modelHeader) {
+    
     const filmQuery = `?films=${JSON.stringify(films)}`;
-    window.open(url + filmQuery, '_blank');
+    const modelQuery = `&model=${encodeURIComponent(modelHeader)}`;
+   
+    // Combine the film and model queries with the URL
+    window.open(url + filmQuery + modelQuery, '_blank');
   }
   
   
@@ -58,7 +61,8 @@ async function populate() {
         // Define the URL you want to open in a new page/tab
         const localPage = "filminfo.html";
         const films = starship.films;
-        openNewPage(localPage, films);
+        const modelHeader = starship.name;
+        openNewPage(localPage, films,modelHeader);
       });
       section.appendChild(myArticle);
     }

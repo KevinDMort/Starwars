@@ -1,6 +1,22 @@
 const urlParams = new URLSearchParams(window.location.search);
 const filmsDataString = urlParams.get("films");
+const modelHeader = urlParams.get("model");
 const filmsData = JSON.parse(filmsDataString);
+
+const head = document.querySelector("head");
+const myTitle = document.createElement("title");
+myTitle.textContent = modelHeader;
+head.appendChild(myTitle);
+
+const header = document.querySelector("header");
+const myH1 = document.createElement("h1");
+myH1.textContent = modelHeader;
+header.appendChild(myH1);
+
+const myH2 = document.createElement("h2");
+myH2.textContent = "Filmography";
+header.appendChild(myH2);
+
 
 async function populate() {
     for (const filmUrl of filmsData) {
@@ -17,7 +33,7 @@ async function populateFilms(obj){
     const section = document.querySelector("section");
     const film = obj;
 
-    
+  
         const myArticle = document.createElement("article");
         const myH2 = document.createElement("h2");
         const myPara1 = document.createElement("p");
@@ -38,6 +54,5 @@ async function populateFilms(obj){
         section.appendChild(myArticle);
     
 } 
-
 populate();
 
