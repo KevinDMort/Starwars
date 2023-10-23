@@ -1,0 +1,33 @@
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    background-color: #64696C;
+  }
+  
+  article {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 0;
+    font-family: 'Star Jedi', sans-serif;
+  }
+  
+  p {
+    margin: 8px 0;
+    font-size: 16px;
+    font-family: 'Star Jedi', sans-serif;
+  }
+  h1 {
+    font-size: 48px;
+    margin: 0;
+    text-align: center;
+  }
