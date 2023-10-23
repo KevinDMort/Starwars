@@ -8,23 +8,23 @@ async function populate() {
       const response = await fetch(request);
       const filmData = await response.json();
   
-      populateFilmInfo(filmData);
+      populateFilms(filmData);
   
     }
   }
 
 async function populateFilms(obj){
     const section = document.querySelector("section");
-    const films = obj.results;
+    const film = obj;
 
-    for(const film of films){
+    
         const myArticle = document.createElement("article");
         const myH2 = document.createElement("h2");
         const myPara1 = document.createElement("p");
         const myPara2 = document.createElement("p");
         const myPara3 = document.createElement("p");
 
-        myH2.textContent = film.name;
+        myH2.textContent = film.title;
         myPara1.textContent = `Director: ${film.director}`;
         myPara2.textContent = `Producer: ${film.producer}`;
         myPara3.textContent = `Release date: ${film.release_date}`;
@@ -36,6 +36,8 @@ async function populateFilms(obj){
         myArticle.appendChild(myPara3);
 
         section.appendChild(myArticle);
-    }
+    
 } 
+
+populate();
 
